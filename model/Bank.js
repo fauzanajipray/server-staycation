@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const bankSchema = new mongoose.Schema({
   nameBank: {
@@ -15,4 +15,4 @@ const bankSchema = new mongoose.Schema({
   },
 });
 
-module.export = mongoose.model("Bank", bankSchema);
+module.exports = mongoose.model("Bank", bankSchema);
