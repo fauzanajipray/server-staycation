@@ -6,12 +6,16 @@ const bankSchema = new mongoose.Schema({
     required: true,
   },
   nomorRekening: {
-    type: string,
+    type: Number,
     required: true,
   },
   name: {
     type: String,
     required: true,
+  },
+  imageUrl: {
+    type: String,
+    required: false,
   },
 });
 

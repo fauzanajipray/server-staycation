@@ -6,8 +6,9 @@ var logger = require("morgan");
 const methodOverride = require("method-override");
 const session = require("express-session");
 const flash = require("connect-flash");
-//import monggose
 const mongoose = require("mongoose");
+
+// Connect DB
 mongoose.connect("mongodb://localhost:27017/db_bwamern", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -37,15 +38,16 @@ app.use(
 app.use(flash());
 app.use(logger("dev"));
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+// ! ROUTER
 app.use(
   "/sb-admin-2",
   express.static(path.join(__dirname, "node_modules/startbootstrap-sb-admin-2"))
 );
-
-// ! ROUTER
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/admin", adminRouter);
