@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const { ObjectId } = mongoose.Schema;
 
 const itemSchema = new mongoose.Schema({
@@ -25,6 +24,10 @@ const itemSchema = new mongoose.Schema({
   description: {
     type: String,
     required: true,
+  },
+  categoryId: {
+    type: ObjectId,
+    ref: `Category`,
   },
   imageId: [
     {
